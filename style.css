@@ -1,0 +1,331 @@
+:root {
+  --bg: #faf9f7;
+  --text: #1a1a18;
+  --muted: #888880;
+  --accent: #c8a97a;
+  --line: #e4e2dc;
+  --card-bg: #ffffff;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+/* ── ナビゲーション ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.4rem 4rem;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+
+.nav-name {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--muted);
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--text); }
+
+/* ── ヒーロー ── */
+#hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 8rem 4rem 4rem;
+  max-width: 900px;
+}
+
+.hero-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.2s forwards;
+}
+
+.hero-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  line-height: 1.25;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.4s forwards;
+}
+
+.hero-desc {
+  font-size: 1rem;
+  color: var(--muted);
+  max-width: 480px;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.6s forwards;
+}
+
+/* ── プロフィール画像 ── */
+.hero-profile {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.profile-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--line);
+  flex-shrink: 0;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.3s forwards;
+}
+
+/* ── セクション共通 ── */
+section {
+  padding: 6rem 4rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.section-label::after {
+  content: '';
+  display: block;
+  height: 1px;
+  width: 48px;
+  background: var(--accent);
+}
+
+/* ── About ── */
+#about {
+  border-top: 1px solid var(--line);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.about-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 2rem;
+  line-height: 1.4;
+  margin-bottom: 1.2rem;
+}
+
+.about-text {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.tools-list {
+  margin-top: 2rem;
+}
+
+.tools-list h4 {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.8rem;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  padding: 0.3rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: 100px;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* ── Works ── */
+#works {
+  border-top: 1px solid var(--line);
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  background: var(--card-bg);
+  border: 1px solid var(--line);
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.gallery-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+}
+
+.gallery-item img {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s;
+}
+
+.gallery-item:hover img { transform: scale(1.03); }
+
+.gallery-caption {
+  padding: 0.9rem 1rem;
+  border-top: 1px solid var(--line);
+}
+
+.gallery-caption h3 {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 0.95rem;
+  margin-bottom: 0.2rem;
+}
+
+.gallery-caption p {
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.img-placeholder {
+  width: 100%;
+  aspect-ratio: 3/4;
+  background: linear-gradient(135deg, #f0ede8 0%, #e8e4dc 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+}
+
+/* ── Contact ── */
+#contact {
+  border-top: 1px solid var(--line);
+  text-align: center;
+  padding: 6rem 4rem 8rem;
+}
+
+.contact-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+
+.contact-text {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-bottom: 2.5rem;
+}
+
+.sns-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.sns-link {
+  text-decoration: none;
+  padding: 0.7rem 1.8rem;
+  border: 1px solid var(--text);
+  color: var(--text);
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: background 0.2s, color 0.2s;
+}
+
+.sns-link:hover {
+  background: var(--text);
+  color: var(--bg);
+}
+
+.sns-link.accent {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.sns-link.accent:hover {
+  background: #b8975e;
+  border-color: #b8975e;
+}
+
+/* ── フッター ── */
+footer {
+  border-top: 1px solid var(--line);
+  padding: 2rem 4rem;
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+/* ── アニメーション ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── レスポンシブ ── */
+@media (max-width: 768px) {
+  nav { padding: 1.2rem 1.5rem; }
+  .nav-links { gap: 1.5rem; }
+  #hero, section, #contact { padding-left: 1.5rem; padding-right: 1.5rem; }
+  .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .gallery { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 480px) {
+  .nav-links { display: none; }
+  .gallery { grid-template-columns: 1fr; }
+}
